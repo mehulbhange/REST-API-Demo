@@ -1,9 +1,6 @@
 package com.bridgelabz.restdemo.controller;
-
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import com.bridgelabz.restdemo.entity.Person;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class HelloController {
@@ -23,6 +20,12 @@ public class HelloController {
     @GetMapping("/hello/{name}")
     public String sayHello(@PathVariable String name){
         return "Hello "+ name +" from Bridgelabz";
+    }
+
+    //get request mapping with request body
+    @PostMapping("/hello")
+    public String getFirstLastName(@RequestBody Person person){
+        return "Hello "+ person.getFirstName() +" "+ person.getLastName() +" from Bridgelabz";
     }
 
 
